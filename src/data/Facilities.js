@@ -1,0 +1,17 @@
+export const FACILITIES = [
+  { icon: "🏥", title: "Hospitals & Medical Centers" },
+  { icon: "🏛️", title: "VA Medical Centers" },
+  { icon: "💉", title: "Dialysis Clinics" },
+  { icon: "🏠", title: "Nursing Homes" },
+  { icon: "🏡", title: "Assisted Living" },
+  { icon: "🦽", title: "Rehabilitation Centers" },
+  { icon: "🧠", title: "Behavioral Health" },
+  { icon: "🦿", title: "Physical Therapy" },
+  { icon: "⚕️", title: "Surgery Centers" },
+  { icon: "🤝", title: "Community Clinics" },
+  { icon: "👴", title: "Senior Communities" },
+  { icon: "🏘️", title: "Group Homes" },
+  { icon: "💳", title: "Medicaid Patients" },
+  { icon: "🎖️", title: "Veterans Programs" },
+  { icon: "🕊️", title: "Hospice Facilities" },
+];
