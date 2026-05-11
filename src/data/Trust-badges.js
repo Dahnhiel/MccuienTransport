@@ -1,10 +1,21 @@
+import { 
+  faMedal, 
+  faBuildingColumns, 
+  faCreditCard, 
+  faHospitalUser, 
+  faHandHoldingMedical, 
+  faWheelchair, 
+  faRoute, 
+  faHeadset 
+} from "@fortawesome/free-solid-svg-icons";
+
 export const TRUST_BADGES = [
-  { icon: "🎖️", label: "Veteran Transport" },
-  { icon: "🏛️", label: "Gov't Contracting" },
-  { icon: "💊", label: "Medicaid Transport" },
-  { icon: "🏥", label: "Hospital Discharge" },
-  { icon: "🩺", label: "Dialysis Transport" },
-  { icon: "♿", label: "Wheelchair Access" },
-  { icon: "🛣️", label: "Long-Distance" },
-  { icon: "📞", label: "24/7 Dispatch" },
+  { icon: faMedal, label: "Veteran Transport" },
+  { icon: faBuildingColumns, label: "Gov't Contracting" },
+  { icon: faCreditCard, label: "Medicaid Transport" },
+  { icon: faHospitalUser, label: "Hospital Discharge" },
+  { icon: faHandHoldingMedical, label: "Dialysis Transport" },
+  { icon: faWheelchair, label: "Wheelchair Access" },
+  { icon: faRoute, label: "Long-Distance" },
+  { icon: faHeadset, label: "24/7 Dispatch" },
 ];

@@ -6,7 +6,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // Brand Colors from Capability Statement
   const brandGold = "#FF8F00";
   const brandBlack = "#000000";
  
@@ -28,18 +27,20 @@ export default function Navbar() {
  
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white shadow-xl py-2 border-b-2" // Reduced from py-3
-          : "bg-transparent py-3" // Reduced from py-5
+          ? "bg-white shadow-xl py-2 border-b-2" 
+          : "bg-white py-4 border-b border-gray-100" // White background ensures logo looks contained
       }`}
       style={{ borderBottomColor: scrolled ? brandGold : "transparent" }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center group">
-          <div className="h-10 md:h-12 flex items-center overflow-hidden"> 
-            <Logo className="h-full w-auto transition-opacity duration-200" />
+        
+        {/* LOGO CONTAINER */}
+        <Link to="/" className="flex items-center shrink-0">
+          <div className="relative flex items-center h-16 md:h-20 w-auto"> 
+            {/* Increased height (h-16/h-20) to fit the McCuien badge perfectly */}
+            <Logo className="h-full w-auto object-contain" />
           </div>
         </Link>
  
@@ -49,7 +50,7 @@ export default function Navbar() {
             <li key={l.to}>
               <Link
                 to={l.to}
-                className="hover:text-orange-600 text-[13px] font-black tracking-widest uppercase transition-colors duration-200"
+                className="hover:text-orange-600 text-[12px] font-black tracking-widest uppercase transition-colors duration-200"
                 style={{ color: brandBlack }}
               >
                 {l.label}
@@ -59,32 +60,25 @@ export default function Navbar() {
         </ul>
  
         {/* CTA */}
-        <a
-          href="tel:+15016472570"
-          className="hidden lg:flex items-center gap-2 text-white font-black text-[13px] tracking-widest uppercase px-6 py-2.5 transition-all duration-200 hover:brightness-110 shadow-lg"
-          style={{ backgroundColor: brandGold }}
-        >
-          Get a Quote
-        </a>
+        <div className="hidden lg:block shrink-0">
+          <a
+            href="tel:+15016472570"
+            className="flex items-center gap-2 text-white font-black text-[12px] tracking-widest uppercase px-8 py-4 transition-all duration-200 hover:brightness-110 shadow-lg"
+            style={{ backgroundColor: brandGold }}
+          >
+            Get a Quote
+          </a>
+        </div>
  
         {/* Mobile burger */}
         <button
-          className="lg:hidden p-2 flex flex-col justify-center items-center"
+          className="lg:hidden p-2 flex flex-col justify-center items-center shrink-0"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          <div 
-            className={`w-6 h-1 mb-1 transition-all ${open ? "rotate-45 translate-y-2" : ""}`} 
-            style={{ backgroundColor: brandBlack }}
-          />
-          <div 
-            className={`w-6 h-1 mb-1 transition-all ${open ? "opacity-0" : ""}`} 
-            style={{ backgroundColor: brandBlack }}
-          />
-          <div 
-            className={`w-6 h-1 transition-all ${open ? "-rotate-45 -translate-y-2" : ""}`} 
-            style={{ backgroundColor: brandBlack }}
-          />
+          <div className={`w-6 h-1 mb-1 transition-all ${open ? "rotate-45 translate-y-2" : ""}`} style={{ backgroundColor: brandBlack }} />
+          <div className={`w-6 h-1 mb-1 transition-all ${open ? "opacity-0" : ""}`} style={{ backgroundColor: brandBlack }} />
+          <div className={`w-6 h-1 transition-all ${open ? "-rotate-45 -translate-y-2" : ""}`} style={{ backgroundColor: brandBlack }} />
         </button>
       </div>
  
