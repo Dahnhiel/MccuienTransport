@@ -6,7 +6,7 @@ export const Logo = ({ className = "" }) => {
   return (
     <Link to="/" className={`inline-block ${className}`}>
       {/* Container: Responsive size (Mobile: 12, Desktop: 16) */}
-      <div className="w-30 h-auto flex items-center justify-center overflow-hidden">
+      <div className="w-30 h-auto flex items-center justify-center overflow-hidden bg-black">
         <img 
           src={LogoImg} 
           alt="McCuien Transportation" 

@@ -9,12 +9,12 @@ const WHO_WE_SERVE = [
   {
     title: "VA Hospitals",
     desc: "Patient transportation to and from VA medical facilities.",
-    img: "https://images.unsplash.com/photo-1586773860418-d37222d8fce2?auto=format&fit=crop&q=80&w=800", // Representative VA/Hospital image
+    img: "https://images.unsplash.com/photo-1640500181344-c2c553585992?q=80&w=773&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Representative VA/Hospital image
   },
   {
     title: "Nursing Homes",
     desc: "Compassionate and reliable transportation for residents and appointments.",
-    img: "https://images.unsplash.com/photo-1581578731522-745d05ad9a2d?auto=format&fit=crop&q=80&w=800", // Senior care image
+    img: "https://images.unsplash.com/photo-1608979827489-2b855e79debe?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Senior care image
   },
   {
     title: "Dialysis Clinics",

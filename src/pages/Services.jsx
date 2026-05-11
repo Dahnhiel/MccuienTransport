@@ -2,7 +2,7 @@ import Reveal from "../components/ui/Reveal";
 import { Tag } from "../components/ui/Tag";
 import CallToAction from "../components/sections/CallToAction";
 import { SERVICE_DETAILS } from "../data/Service-details";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Services() {
   const brandGold = "#FF8F00";
@@ -36,8 +36,18 @@ export default function Services() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {SERVICE_DETAILS.map((service, i) => (
               <Reveal key={service.title} delay={i * 50}>
-                <div className="group h-full border-2 border-gray-100 p-10 hover:border-black transition-all duration-300 bg-white hover:shadow-2xl">
-                  <div className="text-4xl mb-6">{service.icon}</div>
+                <div
+                  key={i}
+                  className="group border-2 border-gray-100 p-8 hover:border-black transition-all"
+                >
+                  {/* Professional Font Awesome Rendering */}
+                  <div className="text-4xl mb-6">
+                    <FontAwesomeIcon
+                      icon={service.icon}
+                      style={{ color: "#FF8F00" }}
+                      className="transition-transform group-hover:scale-110"
+                    />
+                  </div>
                   <h3
                     className="font-black text-2xl uppercase tracking-tight mb-4"
                     style={{ color: brandBlack }}
@@ -138,8 +148,8 @@ export default function Services() {
             <div className="relative">
               <div className="absolute -inset-4 border-2 border-gray-100 -z-10" />
               <img
-                src="https://images.unsplash.com/photo-1516503531231-1e655687d9f4?auto=format&fit=crop&q=80&w=1200"
-                alt="Medical Transit Vehicle"
+                src="https://images.unsplash.com/photo-1565656658383-4fa3a0169636?q=80&w=875&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="McCuien Medical Transit Vehicle"
                 className="w-full h-auto shadow-2xl"
               />
             </div>

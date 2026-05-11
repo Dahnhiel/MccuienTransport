@@ -1,4 +1,13 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faBuildingShield, 
+  faShield, 
+  faUserCheck, 
+  faLock, 
+  faMapLocationDot, 
+  faRoute 
+} from "@fortawesome/free-solid-svg-icons";
 import useInView from "../../hooks/scrollanimation";
 import { Tag } from "../ui/Tag";
 import { GoldLine } from "../ui/GoldLine";
@@ -7,13 +16,45 @@ import Reveal from "../ui/Reveal";
 export default function WhoWeAre() {
   const [ref, visible] = useInView();
   
-  // Brand Colors from Capability Statement
   const brandGold = "#FF8F00";
   const brandBlack = "#000000";
 
+  // Data with FontAwesome icons
+  const credentials = [
+    {
+      icon: faBuildingShield,
+      title: "SAM.gov Registered",
+      desc: "Government procurement ready",
+    },
+    {
+      icon: faShield,
+      title: "Fully Insured",
+      desc: "Complete liability coverage",
+    },
+    {
+      icon: faUserCheck,
+      title: "Background Checked",
+      desc: "Every driver, every time",
+    },
+    {
+      icon: faLock,
+      title: "HIPAA Conscious",
+      desc: "Patient privacy protected",
+    },
+    { 
+      icon: faMapLocationDot, 
+      title: "Rural Coverage", 
+      desc: "Statewide & beyond" 
+    },
+    {
+      icon: faRoute,
+      title: "Long Distance",
+      desc: "Interstate & regional trips",
+    },
+  ];
+
   return (
     <section className="bg-white py-28 relative overflow-hidden">
-      {/* Background accent - Changed to subtle grey for "Bright" feel */}
       <div className="absolute right-0 top-0 w-1/3 h-full bg-gray-50 skew-x-6 pointer-events-none" />
 
       <div
@@ -57,47 +98,23 @@ export default function WhoWeAre() {
           </div>
         </div>
 
-        {/* Credential grid - Bright Professional Cards */}
         <div className="grid grid-cols-2 gap-4">
-          {[
-            {
-              icon: "🏛️",
-              title: "SAM.gov Registered",
-              desc: "Government procurement ready",
-            },
-            {
-              icon: "🔒",
-              title: "Fully Insured",
-              desc: "Complete liability coverage",
-            },
-            {
-              icon: "✅",
-              title: "Background Checked",
-              desc: "Every driver, every time",
-            },
-            {
-              icon: "🔐",
-              title: "HIPAA Conscious",
-              desc: "Patient privacy protected",
-            },
-            { icon: "🗺️", title: "Rural Coverage", desc: "Statewide & beyond" },
-            {
-              icon: "🛣️",
-              title: "Long Distance",
-              desc: "Interstate & regional trips",
-            },
-          ].map((c, i) => (
+          {credentials.map((c, i) => (
             <Reveal key={c.title} delay={i * 60}>
               <div 
-                className="bg-white border-2 hover:shadow-xl transition-all duration-300 group p-5"
+                className="bg-white border-2 hover:shadow-xl transition-all duration-300 group p-6"
                 style={{ borderColor: "#f3f4f6" }}
               >
-                <div className="text-2xl mb-3">{c.icon}</div>
+                {/* FontAwesome Icon Rendering */}
+                <div className="text-2xl mb-4">
+                  <FontAwesomeIcon icon={c.icon} style={{ color: brandGold }} />
+                </div>
+                
                 <div className="font-black text-sm uppercase tracking-tight" style={{ color: brandBlack }}>
                   {c.title}
                 </div>
-                <div className="text-gray-500 text-xs mt-1 font-bold">{c.desc}</div>
-                {/* Subtle bottom bar on hover */}
+                <div className="text-gray-500 text-[10px] mt-1 font-black uppercase tracking-widest">{c.desc}</div>
+                
                 <div 
                    className="w-0 group-hover:w-full h-1 transition-all mt-4" 
                    style={{ backgroundColor: brandGold }}
