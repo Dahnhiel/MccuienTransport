@@ -128,8 +128,7 @@ export default function About() {
       </section>
 
       {/* 4. CAPABILITY STATEMENT DOWNLOAD SECTION */}
-      <section className="py-24 bg-gray-900 relative overflow-hidden">
-        {/* Subtle background text */}
+      {/* <section className="py-24 bg-gray-900 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none pointer-events-none">
             <span className="text-white font-black text-[20vw] leading-none">CAPABILITY</span>
         </div>
@@ -145,7 +144,7 @@ export default function About() {
                 for government and healthcare procurement.
             </p>
             <a 
-              href={CapabilityStatement} // Ensure this matches your file path
+              href={CapabilityStatement}
               download
               className="inline-flex items-center gap-4 bg-white text-black font-black uppercase tracking-widest px-12 py-6 hover:scale-105 transition-transform shadow-2xl"
             >
@@ -156,7 +155,7 @@ export default function About() {
             </a>
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       <CallToAction />
     </main>

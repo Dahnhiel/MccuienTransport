@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "../ui/Logo";
+import CapabilityStatement from "../../assets/capability-statement.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,29 +30,23 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white shadow-xl py-2 border-b-2" 
-          : "bg-white py-4 border-b border-gray-100" // White background ensures logo looks contained
+          ? "bg-white shadow-md py-3 border-b-2" 
+          : "bg-transparent py-6" 
       }`}
       style={{ borderBottomColor: scrolled ? brandGold : "transparent" }}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
-        {/* LOGO CONTAINER */}
-        <Link to="/" className="flex items-center shrink-0">
-          <div className="relative flex items-center h-16 md:h-20 w-auto"> 
-            {/* Increased height (h-16/h-20) to fit the McCuien badge perfectly */}
-            <Logo className="h-full w-auto object-contain" />
-          </div>
-        </Link>
+        {/* LOGO */}
+        <Logo className={`shrink-0 transition-transform duration-300 ${scrolled ? "scale-90" : "scale-100"}`} />
  
-        {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-7">
+        {/* Desktop links - Forced Black per your request */}
+        <ul className="hidden xl:flex items-center gap-7">
           {links.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
-                className="hover:text-orange-600 text-[12px] font-black tracking-widest uppercase transition-colors duration-200"
-                style={{ color: brandBlack }}
+                className="text-black text-[11px] font-bold tracking-widest uppercase transition-colors duration-300 hover:text-orange-500"
               >
                 {l.label}
               </Link>
@@ -59,11 +54,30 @@ export default function Navbar() {
           ))}
         </ul>
  
-        {/* CTA */}
-        <div className="hidden lg:block shrink-0">
+        {/* CTAs */}
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Download Capability Statement (Ghost Button) */}
+          <a
+            href={CapabilityStatement}
+            download
+            className="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase px-5 py-3 border-2 border-black text-black transition-all duration-300 rounded-sm hover:bg-black hover:text-white group"
+          >
+            <span>Capability Statement</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-4 w-4 transition-colors group-hover:text-white" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5m0 0l5-5m-5 5V3" />
+            </svg>
+          </a>
+
+          {/* Get a Quote (Solid Button) */}
           <a
             href="tel:+15016472570"
-            className="flex items-center gap-2 text-white font-black text-[12px] tracking-widest uppercase px-8 py-4 transition-all duration-200 hover:brightness-110 shadow-lg"
+            className="text-white font-bold text-[10px] tracking-widest uppercase px-7 py-3 rounded-sm transition-all duration-300 hover:shadow-lg active:scale-95"
             style={{ backgroundColor: brandGold }}
           >
             Get a Quote
@@ -72,26 +86,24 @@ export default function Navbar() {
  
         {/* Mobile burger */}
         <button
-          className="lg:hidden p-2 flex flex-col justify-center items-center shrink-0"
+          className="lg:hidden p-2 flex flex-col gap-1.5"
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
         >
-          <div className={`w-6 h-1 mb-1 transition-all ${open ? "rotate-45 translate-y-2" : ""}`} style={{ backgroundColor: brandBlack }} />
-          <div className={`w-6 h-1 mb-1 transition-all ${open ? "opacity-0" : ""}`} style={{ backgroundColor: brandBlack }} />
-          <div className={`w-6 h-1 transition-all ${open ? "-rotate-45 -translate-y-2" : ""}`} style={{ backgroundColor: brandBlack }} />
+          <div className="w-6 h-0.5 bg-black transition-all" style={{ transform: open ? "rotate(45deg) translateY(8px)" : "" }} />
+          <div className="w-6 h-0.5 bg-black transition-all" style={{ opacity: open ? 0 : 1 }} />
+          <div className="w-6 h-0.5 bg-black transition-all" style={{ transform: open ? "rotate(-45deg) translateY(-8px)" : "" }} />
         </button>
       </div>
  
       {/* Mobile drawer */}
       {open && (
-        <div className="lg:hidden bg-white border-t px-6 py-8 shadow-2xl" style={{ borderTopColor: brandGold }}>
-          <ul className="space-y-6">
+        <div className="lg:hidden bg-white absolute top-full left-0 w-full px-6 py-8 shadow-2xl border-t-2" style={{ borderTopColor: brandGold }}>
+          <ul className="space-y-6 mb-8">
             {links.map((l) => (
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="font-black tracking-widest uppercase text-base transition-colors"
-                  style={{ color: brandBlack }}
+                  className="block font-bold tracking-widest uppercase text-sm text-black"
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
@@ -99,13 +111,25 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a
-            href="tel:+15016472570"
-            className="mt-8 block text-center text-white font-black text-sm uppercase tracking-widest px-6 py-4 shadow-md"
-            style={{ backgroundColor: brandGold }}
-          >
-            Get a Quote
-          </a>
+          <div className="flex flex-col gap-4">
+             <a
+              href={CapabilityStatement}
+              download
+              className="flex justify-center items-center gap-2 border-2 border-black text-black font-bold text-xs uppercase tracking-widest px-6 py-4"
+            >
+              Capability Statement
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5m0 0l5-5m-5 5V3" />
+              </svg>
+            </a>
+            <a
+              href="tel:+15016472570"
+              className="block text-center text-white font-bold text-xs uppercase tracking-widest px-6 py-4"
+              style={{ backgroundColor: brandGold }}
+            >
+              Get a Quote
+            </a>
+          </div>
         </div>
       )}
     </nav>

@@ -148,7 +148,7 @@ export default function Services() {
             <div className="relative">
               <div className="absolute -inset-4 border-2 border-gray-100 -z-10" />
               <img
-                src="https://images.unsplash.com/photo-1565656658383-4fa3a0169636?q=80&w=875&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.pexels.com/photos/35831376/pexels-photo-35831376.jpeg"
                 alt="McCuien Medical Transit Vehicle"
                 className="w-full h-auto shadow-2xl"
               />

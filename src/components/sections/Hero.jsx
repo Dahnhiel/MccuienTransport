@@ -20,18 +20,15 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
-      {/* Background image - Restored with higher opacity for brightness */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/hero.png')",
+          backgroundImage: "url('/hero.jpg')",
         }}
       />
 
-      {/* Brightness Overlay (White instead of Black) */}
       <div className="absolute inset-0 bg-white/80" />
 
-      {/* Diagonal gold accent bar */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -40,13 +37,11 @@ export default function Hero() {
         }}
       />
 
-      {/* Vertical gold line accent */}
       <div 
         className="absolute left-0 top-0 bottom-0 w-1 opacity-40" 
         style={{ background: `linear-gradient(to bottom, transparent, ${brandGold}, transparent)` }}
       />
 
-      {/* Subtle grid texture */}
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
