@@ -75,13 +75,13 @@ export default function Navbar() {
           </a>
 
           {/* Get a Quote (Solid Button) */}
-          <a
-            href="tel:+15016472570"
+          <Link
+            to="/contact"
             className="text-white font-bold text-[10px] tracking-widest uppercase px-7 py-3 rounded-sm transition-all duration-300 hover:shadow-lg active:scale-95"
             style={{ backgroundColor: brandGold }}
           >
             Get a Quote
-          </a>
+          </Link>
         </div>
  
         {/* Mobile burger */}
@@ -122,13 +122,13 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M7 10l5 5m0 0l5-5m-5 5V3" />
               </svg>
             </a>
-            <a
-              href="tel:+15016472570"
+            <Link
+              to="/contact"
               className="block text-center text-white font-bold text-xs uppercase tracking-widest px-6 py-4"
               style={{ backgroundColor: brandGold }}
             >
               Get a Quote
-            </a>
+            </Link>
           </div>
         </div>
       )}
